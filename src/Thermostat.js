@@ -1,4 +1,8 @@
 class Thermostat {
+  static get MINTEMP() {
+     return 10;
+  }
+
   constructor() {
     this.temperature = 20;
   }
@@ -8,7 +12,7 @@ class Thermostat {
   }
 
   downTemperature() {
-    if(this.temperature === 10) {
+    if(this.temperature === Thermostat.MINTEMP) {
       throw Error("Cannot go below 10 degrees");
     }
     else {

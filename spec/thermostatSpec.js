@@ -9,6 +9,10 @@ describe('Thermostat', function () {
     it('should start at 20 degrees', function() {
       expect(thermostat.temperature).toEqual(20);
     });
+
+    it('should be on Power Saving by default', function() {
+      expect(thermostat.isPowerSaving).toBe(true);
+    });
   });
 
   describe('upTemperature', function(){
