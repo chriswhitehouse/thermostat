@@ -28,7 +28,6 @@ describe('Thermostat', function () {
   describe('minimumTemperature', function(){
     it("throws error if this.temperature is trying to go below 10", function() {
       thermostat.temperature = 10
-      thermostat.downTemperature();
       expect( function() { thermostat.downTemperature() }).toThrow(new Error("Cannot go below 10 degrees"));
     });
   });

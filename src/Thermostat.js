@@ -4,11 +4,15 @@ class Thermostat {
   }
 
   upTemperature() {
-    this.temperature ++
+    this.temperature ++;
   }
 
   downTemperature() {
-    this.temperature --
-  }
-
+    if(this.temperature === 10) {
+      throw Error("Cannot go below 10 degrees");
+    }
+    else {
+      this.temperature --;
+    };
+  };
 }
