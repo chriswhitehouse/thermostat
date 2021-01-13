@@ -14,8 +14,14 @@ describe('Thermostat', function () {
   describe('upTemperature', function(){
     it("Increases the temperature by 1", function() {
       thermostat.upTemperature();
-      console.log(thermostat.temperature);
       expect(thermostat.temperature).toEqual(21);
+    })
+  });
+
+  describe('downTemperature', function(){
+    it("Decreases the temperature by 1", function() {
+      thermostat.downTemperature();
+      expect(thermostat.temperature).toEqual(19);
     })
   });
 
