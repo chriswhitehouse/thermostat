@@ -7,4 +7,8 @@ class Thermostat {
     this.temperature ++
   }
 
+  downTemperature() {
+    this.temperature --
+  }
+
 }
