@@ -12,21 +12,27 @@ class Thermostat {
   }
 
   upTemperature() {
-    if (this.isPowerSaving === true)
-      if (this.temperature < this.maxTemp)
-        this.temperature ++;
-      else
-        throw Error("Cannot go above 25 degrees")
+    if (this.temperature === this.maxTemp)
+      throw Error(`Cannot go above ${this.maxTemp} degrees`)
+    else
+      this.temperature ++;
   };
 
   downTemperature() {
-    if(this.temperature === Thermostat.MINTEMP) {
+    if (this.temperature === Thermostat.MINTEMP)
       throw Error("Cannot go below 10 degrees");
-    }
-    else {
+    else
       this.temperature --;
-    };
   };
 
-
-}
+  togglePowerSaving() {
+    if (this.isPowerSaving === true) {
+      this.isPowerSaving = false;
+      this.maxTemp = 32;
+    }
+    else {
+      this.isPowerSaving = true;
+      this.maxTemp = 25;
+    };
+  };
+};
