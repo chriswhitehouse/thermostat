@@ -31,8 +31,17 @@ describe('Thermostat', function () {
 
   describe('minimumTemperature', function(){
     it("throws error if this.temperature is trying to go below 10", function() {
-      thermostat.temperature = 10
+      thermostat.temperature = 10;
       expect( function() { thermostat.downTemperature() }).toThrow(new Error("Cannot go below 10 degrees"));
+    });
+  });
+
+  describe('maximumTemperature', function(){
+    describe('when power saving mode is on', function(){
+      it('throws an error if temperature is adjusted above 25 degrees', function(){
+        thermostat.temperature = 25;
+        expect( function() { thermostat.upTemperature() }).toThrow(new Error("Cannot go above 25 degress"));
+      });
     });
   });
 
