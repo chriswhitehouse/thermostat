@@ -75,5 +75,21 @@ describe('Thermostat', function () {
     });
   });
 
+  describe('usage', function(){
+    it('returns low-usage if temp is below 18', function(){
+      thermostat.temperature = 17
+      expect(thermostat.usage()).toEqual('low-usage');
+    });
+
+    it('returns medium-usage if temp is below or equal to 25', function(){
+      thermostat.temperature = 23
+      expect(thermostat.usage()).toEqual('medium-usage');
+    });
+
+    it('returns high-usage if temp is above 25', function(){
+      thermostat.temperature = 28
+      expect(thermostat.usage()).toEqual('high-usage');
+    });
+  });
 
 });
