@@ -1,3 +1,5 @@
+'use strict';
+
 class Thermostat {
   static get MINTEMP() {
      return 10;
@@ -6,11 +8,16 @@ class Thermostat {
   constructor() {
     this.temperature = 20;
     this.isPowerSaving = true;
+    this.maxTemp = 25
   }
 
   upTemperature() {
-    this.temperature ++;
-  }
+    if (this.isPowerSaving === true)
+      if (this.temperature < this.maxTemp)
+        this.temperature ++;
+      else
+        throw Error("Cannot go above 25 degrees")
+  };
 
   downTemperature() {
     if(this.temperature === Thermostat.MINTEMP) {

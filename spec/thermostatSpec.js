@@ -1,3 +1,5 @@
+'use strict';
+
 describe('Thermostat', function () {
   var thermostat;
 
@@ -36,13 +38,34 @@ describe('Thermostat', function () {
     });
   });
 
+  describe('tests togglePowerSaving', function(){
+    it("turns powerSavingMode off", function(){
+      thermostat.togglePowerSaving()
+      expect(thermostat.isPowerSaving).toBe(false)
+    });
+
+    it("turns powerSavingMode on", function(){
+      thermostat.isPowerSaving = false
+      thermostat.togglePowerSaving()
+      expect(thermostat.isPowerSaving).toBe(true)
+    })
+  })
   describe('maximumTemperature', function(){
     describe('when power saving mode is on', function(){
       it('throws an error if temperature is adjusted above 25 degrees', function(){
         thermostat.temperature = 25;
-        expect( function() { thermostat.upTemperature() }).toThrow(new Error("Cannot go above 25 degress"));
+        expect( function() { thermostat.upTemperature() }).toThrow(new Error("Cannot go above 25 degrees"));
       });
     });
+
+    describe('when power saving mode is off', function(){
+      it('throws an error if temperature is adjusted above 32 degrees', function(){
+        thermostat.togglePowerSaving()
+        thermostat.temperature = 32
+        expect( function() { thermostat.upTemperature() }).toThrow(new Error("Cannot go above 32 degrees"));
+      })
+    })
   });
+
 
 });
