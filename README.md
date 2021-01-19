@@ -5,7 +5,10 @@ A small client side thermostat JavaScript application.
 To build understanding of dynamic client side applications and the Document Object Model with JavaScript and jQuery.
 
 ## Screenshots
-Include logo/demo screenshot etc.
+![Medium Temperature](https://github.com/chriswhitehouse/thermostat/blob/main/screenshots/Screenshot%202021-01-19%20at%2018.53.59.png)
+![Low Temperature](https://github.com/chriswhitehouse/thermostat/blob/main/screenshots/Screenshot%202021-01-19%20at%2018.54.13.png)
+![High Temperature](https://github.com/chriswhitehouse/thermostat/blob/main/screenshots/Screenshot%202021-01-19%20at%2018.54.31.png)
+
 
 ## Tech/framework used
 JavaScript with Jasmine test framework.
@@ -147,6 +150,8 @@ describe('Thermostat', function () {
 
 ## Tests
 `$ open SpecRunner.html`
+
+![Tests](https://github.com/chriswhitehouse/thermostat/blob/main/screenshots/Screenshot%202021-01-19%20at%2019.01.34.png)
 
 
 ## How to use?
